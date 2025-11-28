@@ -1,0 +1,23 @@
+{
+  "name": "cse3100-fullstack-final-project",
+  "version": "1.0.0",
+  "main": "backend/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "nodemon backend/server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.9.4"
+  },
+  "description": "A starter full-stack project for CSE 236 / CSE 3100 final submission.",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
