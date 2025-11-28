@@ -25,7 +25,7 @@ This project demonstrates full-stack development skills including:
 - Logout functionality  
 - Clean UI/UX with validation and error handling  
 - Implemented using:
-  - Vanilla JavaScript
+  - JavaScript
   - Modular functions
   - LocalStorage persistence
   - Try/Catch error handling
