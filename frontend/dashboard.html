@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dashboard - LiveBook</title>
+  <link rel="stylesheet" href="css/dashboard.css" />
+  <style>
+    :root {
+      --primary: #667eea;
+      --success: #28a745;
+      --danger: #dc3545;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f7fa;
+    }
+
+    nav.topbar {
+      background: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav.topbar .brand-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.3em;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    nav.topbar .logo-small {
+      height: 40px;
+      width: auto;
+    }
+
+    nav.topbar .btn-ghost {
+      background: transparent;
+      border: 1px solid var(--danger);
+      color: var(--danger);
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    nav.topbar .btn-ghost:hover {
+      background: var(--danger);
+      color: white;
+    }
+
+    main.container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    main.container h2 {
+      color: #333;
+      margin-bottom: 10px;
+      font-size: 2em;
+    }
+
+    #welcome {
+      color: #666;
+      font-size: 1.1em;
+      margin-bottom: 30px;
+      padding: 15px 20px;
+      background: #e7f3ff;
+      border-left: 4px solid var(--primary);
+      border-radius: 4px;
+    }
+
+    /* Welcome Card */
+    .welcome-card {
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+    }
+
+    .welcome-card h3 {
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    /* Users Section */
+    section {
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+    }
+
+    section h3 {
+      color: #333;
+      margin-top: 0;
+      margin-bottom: 20px;
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 10px;
+    }
+
+    #usersList {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    #usersList li {
+      padding: 15px;
+      background: #f8f9fa;
+      border-radius: 6px;
+      margin-bottom: 12px;
+      border-left: 4px solid var(--primary);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    #usersList li strong {
+      color: #333;
+      display: block;
+    }
+
+    #usersList li small {
+      color: #999;
+      display: block;
+      margin-top: 5px;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, var(--primary) 0%, #764ba2 100%);
+      color: white;
+      padding: 40px;
+      border-radius: 8px;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .cta-section h3 {
+      margin-top: 0;
+      color: white;
+      border: none;
+      padding: 0;
+    }
+
+    .cta-section p {
+      color: rgba(255,255,255,0.9);
+      margin: 15px 0;
+    }
+
+    .btn-primary {
+      background: var(--success);
+      color: white;
+      padding: 12px 28px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1.05em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: #218838;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(40, 167, 69, 0.4);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      main.container {
+        margin: 20px auto;
+      }
+
+      main.container h2 {
+        font-size: 1.5em;
+      }
+
+      section, .welcome-card, .cta-section {
+        padding: 20px;
+      }
+
+      #usersList li {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav.topbar {
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="topbar">
+    <div class="brand-left">
+      <img src="assets/logo.png" alt="LiveBook Logo" class="logo-small" />
+      <span>LiveBook App</span>
+    </div>
+    <div>
+      <button id="logoutBtn" class="btn-ghost">🚪 Logout</button>
+    </div>
+  </nav>
+
+  <main class="container">
+    <h2>📊 Dashboard</h2>
+    <p id="welcome">Loading...</p>
+
+    <!-- CTA Section for To-Do List -->
+    <section class="cta-section">
+      <h3>📝 Manage Your Tasks</h3>
+      <p>Keep track of all your important tasks in one place.</p>
+      <a href="todo.html" class="btn-primary">✨ Open My To Do List</a>
+    </section>
+
+    <!-- Users Section -->
+    <section>
+      <h3>👥 All Users</h3>
+      <ul id="usersList"></ul>
+    </section>
+  </main>
+
+  <script src="js/utils.js"></script>
+  <script>
+    // Logout handler with confirmation
+    const logoutBtn = document.getElementById('logoutBtn');
+    if (logoutBtn) {
+      logoutBtn.addEventListener('click', () => {
+        if (confirm('Are you sure you want to logout?')) {
+          localStorage.removeItem('token');
+          localStorage.removeItem('username');
+          location.href = 'login.html';
+        }
+      });
+    }
+  </script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
